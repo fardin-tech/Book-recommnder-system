@@ -1,5 +1,6 @@
 from flask import Flask,render_template
 from flask import request
+from waitress import serve
 import numpy as np
 import pickle
 popular_df=pickle.load(open('popular.pkl','rb'))
@@ -39,4 +40,4 @@ def recommend():
     print(data)
     return render_template('recommend.html',data=data)
 if __name__=='__main__':
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=50100, threads=1)
