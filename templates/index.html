@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommder system</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    .text-white{
+        color:white
+    }
+</style>
+<body style="background-color: black;">
+    <nav class="navbar" style="background-color: #00a65a;">
+        <a class="navbar-brand">My Book Recommder</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a>Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white" style="font-size: 50px;">Top 50 Books</h1>
+            </div>
+            {% for i in range(book_name|length)%}
+                <div class="col-md-3" style="margin-top: 50px; text-align: center;">
+                    <div class="card" style="height: 300px;">
+                        <div class="card-body">
+                            <span class="a-list-item" style=" width: 120px; height: 200px;">
+                                <img class="card-img-top" src={{img[i]}} style="width: 100px; border-radius: 8px; background-color: white; box-shadow: 0cqmax;">
+                            </span>
+                            <br>
+                            <label class="text-white"  style="font-size: 13px; text-align: center; font-weight: bold; max-width: 100px;">{{book_name[i]}}</label>
+                            <br>
+                            <h4 class="text-white" style="font-size: 10px;">{{author[i]}}</h4>
+                            
+                            <h4 class="text-white" style="font-size: 8px;"> Number of Votes {{votes[i]}}</h4>
+                    
+                            <h4 class="text-white" style="font-size: 8px;">Avg Rating {{rating[i]}}</h4>
+                        </div>     
+                    </div> 
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
